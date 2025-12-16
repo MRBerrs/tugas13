@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laka Library</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <div class="nav">
+        <h2 class="logo">LAKA</h2>
+        <ul class="nav-menu">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#" class="ongoing">About</a></li>
+            <li><a href="#" class="ongoing">Contact</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search a book or author...">
+        </div>
+        <div class="books-grid">
+            <div class="book-card">
+                <img src="asset/atomik.jpg" alt="Atomic Habits">
+                <h3>Atomic Habits</h3>
+                <p>James Clear</p>
+            </div>
+            <div class="book-card">
+                <img src="asset/buk2.png" alt="Sebuah Seni">
+                <h3>Sebuah Seni untuk Bersikap Bodo Amat</h3>
+                <p>Mark Manson</p>
+            </div>
+            <div class="book-card">
+                <img src="asset/buk3.jpeg" alt="Kosmos">
+                <h3>Kosmos</h3>
+                <p>Ann Druyan</p>
+            </div>
+            <div class="book-card">
+                <img src="asset/buk4.jpg" alt="Mencintai">
+                <h3>Mencintai (Untuk) Patah Hati</h3>
+                <p>Hujan Mimpi</p>
+            </div>
+            <div class="book-card">
+                <img src="asset/buk5.jpeg" alt="Teh dan Penghianat">
+                <h3>Teh dan Penghianat</h3>
+                <p>Iksaka Banu</p>
+            </div>
+            <div class="book-card">
+                <img src="asset/buk6.jpeg" alt="Arsitektur Rumah Jawa">
+                <h3>Arsitektur Rumah Jawa : Mengungkap Filosofi Makna dan Simbologinya</h3>
+                <p>Asti Musman</p>
+            </div>
+            <div class="book-card">
+                <img src="asset/buk7.jpeg" alt="Mencintai">
+                <h3>Akhir Antara Kita (It Ends with Us)</h3>
+                <p>Colleen Hoover</p>
+            </div>
+                </div>
+        </div>
+        <footer class="footer">
+    <div class="footer-content">
+        <img src="asset/B.svg" alt="flogo" class="flogo">
+        <p>© 2025 Laka Library. All rights reserved.</p>
+    </div>
+</footer>
+<style>
+body {
+font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+margin: 0;
+background-color: #F6F4EF;
+color: #2E2E2E;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 100vh;
+    background-color: #354F45;
+    padding-top: 20px;
+}
+
+.logo {
+    text-align: center;
+    color: #F2F2EE;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu a {
+    display: block;
+    padding: 10px 16px;
+    color: #F2F2EE;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    background-color: #C8D5C1;
+    color: #354F45;
+}
+
+.container {
+    margin-left: 170px;
+    padding: 20px;
+}
+
+.search-box {
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    width: 100%;
+    max-width: 320px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #FFFFFF;
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 22px;
+}
+
+.book-card {
+    background-color: #4F6F64;
+    color: #F2F2EE;
+    padding: 14px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+}
+
+.book-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.book-card h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    margin: 10px 0 4px;
+}
+
+.book-card p {
+    font-size: 14px;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.footer {
+    margin-left: 150px;
+    padding: 16px 20px;
+    background-color: #354F45;
+    color: #F2F2EE;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+}
+
+.flogo {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+</style>
+<script>
+    const searchInput = document.getElementById("searchInput");
+const bookCards = document.querySelectorAll(".book-card");
+
+searchInput.addEventListener("keyup", () => {
+    const keyword = searchInput.value.toLowerCase();
+
+    bookCards.forEach(card => {
+        const title = card.querySelector("h3").textContent.toLowerCase();
+        const author = card.querySelector("p").textContent.toLowerCase();
+
+        card.style.display =
+            title.includes(keyword) || author.includes(keyword)
+            ? "block"
+            : "none";
+    });
+});
+</script>
+</body>
+</html>
